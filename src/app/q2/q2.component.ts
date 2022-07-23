@@ -20,7 +20,6 @@ export class Q2Component {
     form: FormGroup = new FormGroup(this.controls);
 
     submit(): void {
-        console.log(this.form.value);
         this.form.updateValueAndValidity();
         if (!this.form.valid) {
             this.showError = true;
@@ -31,15 +30,9 @@ export class Q2Component {
     }
 
     minChecked(minRequired = 1): ValidatorFn {
-        return ((formGroup: FormGroup) => {
-            // let checked = 0
-            console.log(formGroup);
-
-            return Object.values(formGroup.controls).filter(control => control.value).length >= minRequired
+        return ((formGroup: FormGroup) =>
+            Object.values(formGroup.controls).filter(control => control.value).length >= minRequired
                 ? null
-                : { minRequired: true };
-
-            // return null
-        }) as ValidatorFn;
+                : { minRequired: true }) as ValidatorFn;
     }
 }

@@ -1,4 +1,4 @@
-<div class="snap-y snap-mandatory h-full overflow-scroll overflow-x-hidden">
+<div class="snap-y snap-mandatory h-full overflow-scroll overflow-x-hidden" (touchmove)="test($event)">
     <app-intro id="intro" class="snap-start bg-orange-300 w-screen h-full flex flex-col justify-center gap-8 p-8"></app-intro>
     <app-q1 id="1" class="snap-start bg-amber-200 w-screen h-full flex flex-col justify-center gap-8 p-8"></app-q1>
     <app-q2 id="2" class="snap-start bg-teal-200 w-screen h-full flex flex-col justify-center gap-8 p-8"></app-q2>
