@@ -1,0 +1,39 @@
+<article class="prose lg:prose-xl">
+    <h1>Vraag 2</h1>
+    <p>
+        Op deze pagina staat een wat langer verhaal. Dan kan je tenminste goed zien hoe het is als er een heel verhaaltje staat.
+        Ik moet dan natuurlijk wel genoeg te typen hebben, dus zet ik maar wat random zinnen neer.
+    </p>
+    <p>
+        Ook als de vraag uit meerdere stukken bestaat is dat natuurlijk interessant hoe het eruit ziet. En dan zal de vraag in een
+        los stuk helemaal onderaan komen te staan!
+    </p>
+    <p>Kies 1 of meer opties. Wat zijn de juiste?</p>
+</article>
+<form [formGroup]="form" class="flex flex-col gap-8">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div *ngFor="let option of options; let i = index">
+            <input id="q2-option-{{ i }}" [formControl]="controls.q2.controls[i]" type="checkbox" class="hidden peer" />
+            <label
+                for="q2-option-{{ i }}"
+                class="inline-flex items-center justify-center p-2 w-full bg-teal-200 peer-checked:bg-teal-300 rounded-lg border-2 cursor-pointer peer-checked:border-green-300"
+                [ngClass]="{ 'ring-2 ring-red-500': showError && !controls.q2.valid }"
+            >
+                {{ option.name }}
+            </label>
+        </div>
+    </div>
+    <button (click)="submit()" class="bg-green-300 rounded-full flex justify-center p-2 shadow-md w-10 h-10">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="w-6 h-6 stroke-black"
+            fill="none"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="arcs"
+        >
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+    </button>
+</form>
