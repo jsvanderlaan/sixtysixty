@@ -1,14 +1,10 @@
-<div class="snap-y snap-mandatory h-full overflow-scroll overflow-x-hidden" (touchmove)="test($event)">
-    <app-intro id="intro" class="snap-start bg-orange-300 w-screen h-full flex flex-col gap-8 p-8 pt-12"></app-intro>
-    <app-q1 id="1" class="snap-start bg-amber-200 w-screen h-full flex flex-col gap-8 p-8 pt-12"></app-q1>
-    <app-q2 id="2" class="snap-start bg-teal-200 w-screen h-full flex flex-col gap-8 p-8 pt-12"></app-q2>
-    <app-q3 id="3" class="snap-start bg-cyan-200 w-screen h-full flex flex-col gap-8 p-8 pt-12"></app-q3>
-    <app-q4 id="4" class="snap-start bg-fuchsia-200 w-screen h-full flex flex-col gap-8 p-8 pt-12"></app-q4>
+<div class="h-full p-8 pt-12" [ngClass]="activeColor ?? ''">
+    <router-outlet></router-outlet>
 </div>
 <div class="absolute flex flex-row gap-2 p-8 bottom-0 w-screen text-3xl">
-    <a href="#intro" class="bg-orange-300 shadow-lg rounded-md w-full grow flex justify-center py-2">#</a>
-    <a href="#1" class="bg-amber-200 shadow-lg rounded-md w-full grow flex justify-center py-2">1</a>
-    <a href="#2" class="bg-teal-200 shadow-lg rounded-md w-full grow flex justify-center py-2">2</a>
-    <a href="#3" class="bg-cyan-200 shadow-lg rounded-md w-full grow flex justify-center py-2">3</a>
-    <a href="#4" class="bg-fuchsia-200 shadow-lg rounded-md w-full grow flex justify-center py-2">4</a>
+    <a href="/intro" class="shadow-lg rounded-md w-full grow flex justify-center py-2" [ngClass]="routeColors.intro">#</a>
+    <a href="/1" class="shadow-lg rounded-md w-full grow flex justify-center py-2" [ngClass]="routeColors.q1">1</a>
+    <a href="/2" class="shadow-lg rounded-md w-full grow flex justify-center py-2" [ngClass]="routeColors.q2">2</a>
+    <a href="/3" class="shadow-lg rounded-md w-full grow flex justify-center py-2" [ngClass]="routeColors.q3">3</a>
+    <a href="/4" class="shadow-lg rounded-md w-full grow flex justify-center py-2" [ngClass]="routeColors.q4">4</a>
 </div>

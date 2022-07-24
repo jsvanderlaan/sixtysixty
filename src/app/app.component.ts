@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivationEnd, Router } from '@angular/router';
+import { routeColors } from './app-routing.module';
 
 @Component({
     selector: 'app-root',
@@ -6,7 +8,13 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-    test(e: any): void {
-        e.preventDefault();
+    activeColor: string | null = null;
+    routeColors = routeColors;
+    constructor(router: Router) {
+        router.events.subscribe(e => {
+            if (e instanceof ActivationEnd) {
+                this.activeColor = e.snapshot.data['backgroudColor'];
+            }
+        });
     }
 }
