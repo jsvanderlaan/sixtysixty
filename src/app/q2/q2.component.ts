@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ValidatorFn } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-q2',
     templateUrl: './q2.component.html',
 })
 export class Q2Component {
+    constructor(private router: Router) {}
+
     options = [{ name: 'Optie 1' }, { name: 'Optie 2' }, { name: 'Mogelijkheid 3' }, { name: 'Perzik' }];
 
     showError: boolean = false;
@@ -20,13 +23,12 @@ export class Q2Component {
     form: FormGroup = new FormGroup(this.controls);
 
     submit(): void {
-        this.form.updateValueAndValidity();
         if (!this.form.valid) {
             this.showError = true;
             return;
         }
 
-        document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' });
+        this.router.navigateByUrl('/intro');
     }
 
     minChecked(minRequired = 1): ValidatorFn {

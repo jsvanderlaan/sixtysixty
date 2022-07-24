@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-q1',
     templateUrl: './q1.component.html',
 })
 export class Q1Component {
+    constructor(private router: Router) {}
+
     showError: boolean = false;
 
     controls = {
@@ -20,6 +23,6 @@ export class Q1Component {
             return;
         }
 
-        document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' });
+        this.router.navigateByUrl('/intro');
     }
 }
