@@ -16,7 +16,7 @@ export const routeColors = {
 
 const routes: Routes = [
     {
-        path: 'intro',
+        path: '',
         component: IntroComponent,
         data: {
             backgroudColor: routeColors.intro,
@@ -50,6 +50,8 @@ const routes: Routes = [
             backgroudColor: routeColors.q4,
         },
     },
+
+    { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
