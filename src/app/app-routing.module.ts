@@ -7,11 +7,11 @@ import { Q3Component } from './q3/q3.component';
 import { Q4Component } from './q4/q4.component';
 
 export const routeColors = {
-    intro: 'bg-orange-300',
-    q1: 'bg-amber-300',
-    q2: 'bg-teal-300',
-    q3: 'bg-cyan-300',
-    q4: 'bg-fuchsia-300',
+    intro: 'bg-intro',
+    q1: 'bg-q1',
+    q2: 'bg-q2',
+    q3: 'bg-q3',
+    q4: 'bg-q4',
 };
 
 const routes: Routes = [
