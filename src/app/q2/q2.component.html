@@ -7,14 +7,14 @@
     <p>Ook als de vraag uit meerdere stukken bestaat is dat natuurlijk interessant hoe het eruit ziet.</p>
     <p>Kies 1 of meer opties. Wat zijn de juiste?</p>
 </article>
-<form [formGroup]="form" class="flex flex-col gap-8">
+<form *ngIf="form" [formGroup]="form" class="flex flex-col gap-8">
     <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
         <div *ngFor="let option of options; let i = index">
-            <input id="q2-option-{{ i }}" [formControl]="controls.q2.controls[i]" type="checkbox" class="hidden peer" />
+            <input id="q2-option-{{ i }}" [formControl]="answer.controls[i]" type="checkbox" class="hidden peer" />
             <label
                 for="q2-option-{{ i }}"
                 class="inline-flex items-center justify-center p-2 w-full bg-teal-200 peer-checked:bg-teal-300 rounded-lg border-2 cursor-pointer peer-checked:border-green-300"
-                [ngClass]="{ 'ring-2 ring-red-500': showError && !controls.q2.valid }"
+                [ngClass]="{ 'ring-2 ring-red-500': showError && !answer.valid }"
             >
                 {{ option.name }}
             </label>

@@ -1,34 +1,23 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ValidatorFn } from '@angular/forms';
-import { Router } from '@angular/router';
+import { AnswerComponent } from '../answer/answer.component';
 
 @Component({
     selector: 'app-q2',
     templateUrl: './q2.component.html',
 })
-export class Q2Component {
-    constructor(private router: Router) {}
+export class Q2Component extends AnswerComponent {
+    override id = 2;
+    override createControl = (initial: any | null) =>
+        new FormArray(
+            initial ? initial.map((i: boolean) => new FormControl(i)) : this.options.map(() => new FormControl(false)),
+            this.minChecked(1)
+        );
 
     options = [{ name: 'Optie 1' }, { name: 'Optie 2' }, { name: 'Mogelijkheid 3' }, { name: 'Perzik' }];
 
-    showError: boolean = false;
-
-    controls = {
-        q2: new FormArray(
-            this.options.map(() => new FormControl(false)),
-            this.minChecked(1)
-        ),
-    };
-
-    form: FormGroup = new FormGroup(this.controls);
-
-    submit(): void {
-        if (!this.form.valid) {
-            this.showError = true;
-            return;
-        }
-
-        this.router.navigateByUrl('/intro');
+    get answer(): FormArray<FormControl<boolean | null>> {
+        return this.controls?.answer as FormArray<FormControl<boolean | null>>;
     }
 
     minChecked(minRequired = 1): ValidatorFn {

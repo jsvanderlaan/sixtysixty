@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-4" *ngIf="form && controls">
     <article class="prose lg:prose-xl">
         <h1>Vraag 1</h1>
         <p>Dit is een kort vraag met een standaard tekst veld. Wat moet je hier invullen?</p>
@@ -8,8 +8,8 @@
             type="text"
             class="px-4 rounded-full py-2 placeholder:italic placeholder:text-slate-400"
             placeholder="Wie zal het zeggen..."
-            [formControl]="controls.q1"
-            [ngClass]="{ 'ring-2 ring-red-500': showError && !controls.q1.valid }"
+            [formControl]="answer"
+            [ngClass]="{ 'ring-2 ring-red-500': showError && !controls.answer.valid }"
         />
         <button (click)="submit()" class="bg-green-300 rounded-full flex justify-center p-2 shadow-md w-10 h-10">
             <svg
