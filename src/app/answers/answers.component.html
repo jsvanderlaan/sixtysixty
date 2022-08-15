@@ -1,0 +1,28 @@
+<ng-container *ngIf="answers$ | async as answers">
+    <ng-container *ngIf="all(answers)">
+        <h3>Uitslag</h3>
+        <p>Je hebt alle vragen beantwoord. Hier komt dan iets van een knop voor indienen/uitslag bekijken.</p>
+    </ng-container>
+
+    <ng-container *ngIf="any(answers)">
+        <h3>Beantwoorde vragen</h3>
+        <p>
+            <span class="flex gap-2 text-2xl flex-wrap">
+                <ng-container *ngFor="let answer of answers">
+                    <a
+                        *ngIf="answer.answered"
+                        [routerLink]="answer.route"
+                        [ngClass]="'bg-[' + answer.color + ']'"
+                        class="shadow-lg rounded-md flex items-center py-2 px-6 no-underline font-normal"
+                    >
+                        {{ answer.label }}
+                    </a>
+                    <div *ngIf="!answer.answered" class="rounded-6 flex items-center py-2 px-6 opacity-25">
+                        {{ answer.label }}
+                    </div>
+                </ng-container>
+            </span>
+            <span class="pt-4 text-sm block">Klik op een vraag om hem aan te passen.</span>
+        </p>
+    </ng-container>
+</ng-container>

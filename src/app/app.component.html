@@ -1,10 +1,3 @@
-<div class="h-full p-8 pt-12" [ngClass]="activeColor ?? ''">
+<div class="min-h-full p-8 pt-12 flex flex-col items-center" [ngClass]="'bg-[' + (activeColor ?? '') + ']'">
     <router-outlet></router-outlet>
-</div>
-<div class="absolute flex flex-row gap-2 p-8 bottom-0 w-screen text-3xl">
-    <a routerLink="/intro" class="shadow-lg rounded-md w-full grow flex justify-center py-2" [ngClass]="routeColors.intro">#</a>
-    <a routerLink="/1" class="shadow-lg rounded-md w-full grow flex justify-center py-2" [ngClass]="routeColors.q1">1</a>
-    <a routerLink="/2" class="shadow-lg rounded-md w-full grow flex justify-center py-2" [ngClass]="routeColors.q2">2</a>
-    <a routerLink="/3" class="shadow-lg rounded-md w-full grow flex justify-center py-2" [ngClass]="routeColors.q3">3</a>
-    <a routerLink="/4" class="shadow-lg rounded-md w-full grow flex justify-center py-2" [ngClass]="routeColors.q4">4</a>
 </div>

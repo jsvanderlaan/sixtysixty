@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ValidatorFn } from '@angular/forms';
-import { AnswerComponent } from '../answer/answer.component';
+import { QuestionComponent } from '../question/question.component';
 
 @Component({
     selector: 'app-q2',
     templateUrl: './q2.component.html',
 })
-export class Q2Component extends AnswerComponent {
+export class Q2Component extends QuestionComponent {
     override id = 2;
     override createControl = (initial: any | null) =>
         new FormArray(

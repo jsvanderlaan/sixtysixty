@@ -1,11 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { QuestionComponent } from '../question/question.component';
 
 @Component({
     selector: 'app-q3',
     templateUrl: './q3.component.html',
 })
-export class Q3Component implements OnInit {
-    constructor() {}
+export class Q3Component extends QuestionComponent {
+    override id = 3;
+    override createControl = (initial: string | null) => new FormControl(initial, Validators.required);
 
-    ngOnInit(): void {}
+    get answer(): FormControl {
+        return this.controls?.answer as FormControl;
+    }
 }

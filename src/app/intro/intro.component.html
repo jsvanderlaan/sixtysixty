@@ -1,11 +1,16 @@
-<article class="prose lg:prose-xl">
-    <h1>Hallo!</h1>
-    <p>
-        Maecenas faucibus mollis interdum. Maecenas faucibus mollis interdum. Maecenas faucibus mollis interdum. Maecenas faucibus
-        mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Nullam quis
-        risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a
-        ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
-        Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac facilisis in,
-        egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum.
-    </p>
-</article>
+<div class="flex flex-col gap-8">
+    <article class="prose lg:prose-xl">
+        <h1>Warmoes-quest</h1>
+        <p>
+            Hier komt een hele mooie intro tekst. Nu typ ik maar wat om het een beetje inhoud te geven. Iets van: ga opzoek naar
+            de QR codes in de warmoestuin en beantwoord de vragen. Hieronder even tijdelijk wat linkjes om naar de vragen te
+            komen.
+        </p>
+        <p class="flex flex-wrap gap-3">
+            <a *ngFor="let question of questions" [routerLink]="'/' + routes[question]">Vraag {{ question }}</a>
+        </p>
+        <p>Normaal staan deze linkjes er dus niet maar kan je er alleen via QR komen.</p>
+
+        <app-answers></app-answers>
+    </article>
+</div>

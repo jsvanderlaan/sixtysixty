@@ -1,10 +1,11 @@
 import { Directive, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { routes } from '../constants';
 import { AnswerService } from '../services/answer.service';
 
-@Directive({ selector: 'answer' })
-export class AnswerComponent implements OnInit {
+@Directive({ selector: 'question' })
+export class QuestionComponent implements OnInit {
     id: number | null = null;
     createControl: ((initial: any | null) => AbstractControl) | null = null;
 
@@ -39,6 +40,6 @@ export class AnswerComponent implements OnInit {
             return;
         }
 
-        this._answerService.answer(this.id!, this.controls?.answer.value!).subscribe(() => this.router.navigateByUrl('/intro'));
+        this._answerService.answer(this.id!, this.controls?.answer.value!).subscribe(() => this.router.navigateByUrl(routes[0]));
     }
 }

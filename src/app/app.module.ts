@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
-import { AnswerComponent } from './answer/answer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
@@ -12,9 +11,11 @@ import { Q1Component } from './q1/q1.component';
 import { Q2Component } from './q2/q2.component';
 import { Q3Component } from './q3/q3.component';
 import { Q4Component } from './q4/q4.component';
+import { QuestionComponent } from './question/question.component';
+import { AnswersComponent } from './answers/answers.component';
 
 @NgModule({
-    declarations: [AppComponent, Q1Component, IntroComponent, Q2Component, Q3Component, Q4Component, AnswerComponent],
+    declarations: [AppComponent, Q1Component, IntroComponent, Q2Component, Q3Component, Q4Component, QuestionComponent, AnswersComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
