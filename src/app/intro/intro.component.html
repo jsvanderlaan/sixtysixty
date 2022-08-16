@@ -1,6 +1,14 @@
 <div class="flex flex-col gap-8">
     <article class="prose lg:prose-xl">
-        <h1>Warmoes-quest</h1>
+        <h1 class="">Warmoes-quest</h1>
+        <p class="flex">
+            <app-icon
+                *ngFor="let question of questions"
+                [color]="routeColors[question]"
+                [innerColor]="question === 3 ? 'black' : 'white'"
+                class="grow"
+            ></app-icon>
+        </p>
         <p>
             Hier komt een hele mooie intro tekst. Nu typ ik maar wat om het een beetje inhoud te geven. Iets van: ga opzoek naar
             de QR codes in de warmoestuin en beantwoord de vragen. Hieronder even tijdelijk wat linkjes om naar de vragen te

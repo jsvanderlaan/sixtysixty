@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { numberOfQuestions, routes } from '../constants';
+import { numberOfQuestions, routeColors, routes } from '../constants';
 
 @Component({
     selector: 'app-intro',
@@ -7,6 +7,7 @@ import { numberOfQuestions, routes } from '../constants';
 })
 export class IntroComponent implements OnInit {
     routes = routes;
+    routeColors = routeColors;
     questions: number[] = Array.from({ length: numberOfQuestions }, (_, i) => i + 1);
     constructor() {}
 

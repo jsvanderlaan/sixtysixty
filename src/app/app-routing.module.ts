@@ -6,6 +6,8 @@ import { Q1Component } from './q1/q1.component';
 import { Q2Component } from './q2/q2.component';
 import { Q3Component } from './q3/q3.component';
 import { Q4Component } from './q4/q4.component';
+import { Q5Component } from './q5/q5.component';
+import { Q6Component } from './q6/q6.component';
 
 const r: Routes = [
     {
@@ -43,7 +45,20 @@ const r: Routes = [
             backgroudColor: routeColors[4],
         },
     },
-
+    {
+        path: routes[5],
+        component: Q5Component,
+        data: {
+            backgroudColor: routeColors[5],
+        },
+    },
+    {
+        path: routes[6],
+        component: Q6Component,
+        data: {
+            backgroudColor: routeColors[6],
+        },
+    },
     { path: '**', redirectTo: routes[0] },
 ];
 
