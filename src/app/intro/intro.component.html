@@ -1,6 +1,6 @@
 <div class="flex flex-col gap-8">
     <article class="prose lg:prose-xl">
-        <h1 class="">Warmoes-quest</h1>
+        <h1>Warmoes-quest</h1>
         <p class="flex">
             <app-icon
                 *ngFor="let question of questions"
@@ -9,15 +9,26 @@
                 class="grow"
             ></app-icon>
         </p>
+        <p>Al willen wij onze geheimen graag delen... Je moet er wel even moeite voor doen...</p>
         <p>
-            Hier komt een hele mooie intro tekst. Nu typ ik maar wat om het een beetje inhoud te geven. Iets van: ga opzoek naar
-            de QR codes in de warmoestuin en beantwoord de vragen. Hieronder even tijdelijk wat linkjes om naar de vragen te
-            komen.
+            Hoe werkt het? <br />
+            Vul je (team-) naam in <span class="font-bold">(todo)</span> en struin door alle tuinen van de Warmoestuin. Wanneer je
+            goed rondkijkt, zie je niet alleen veel moois, maar ook zes kleine gekleurde vlaggetjes.
         </p>
-        <p class="flex flex-wrap gap-3">
+        <p>
+            Scan van elk vlaggetje de QR code en de vraag komt in beeld. (URL staat er onder) <br />
+            Vul het juiste antwoord in en sla op! <br />
+            <span class="italic">Tip: vraag eens raad aan een andere feestganger of buurtgenoot </span>
+        </p>
+        <p>
+            Heb je alle vragen gespeeld?... <br />
+            Dan worden onze tuingeheimen prijsgegeven!
+        </p>
+        <p>Veel plezier!</p>
+        <!-- <p class="flex flex-wrap gap-3">
             <a *ngFor="let question of questions" [routerLink]="'/' + routes[question]">Vraag {{ question }}</a>
         </p>
-        <p>Normaal staan deze linkjes er dus niet maar kan je er alleen via QR komen.</p>
+        <p>Normaal staan deze linkjes er dus niet maar kan je er alleen via QR komen.</p> -->
 
         <app-answers></app-answers>
     </article>

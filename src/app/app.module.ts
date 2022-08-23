@@ -16,6 +16,7 @@ import { Q5Component } from './q5/q5.component';
 import { Q6Component } from './q6/q6.component';
 import { QuestionComponent } from './question/question.component';
 import { IconComponent } from './icon/icon.component';
+import { UitslagComponent } from './uitslag/uitslag.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { IconComponent } from './icon/icon.component';
         QuestionComponent,
         AnswersComponent,
         IconComponent,
+        UitslagComponent,
     ],
     imports: [
         BrowserModule,

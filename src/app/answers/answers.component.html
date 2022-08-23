@@ -1,26 +1,39 @@
 <ng-container *ngIf="answers$ | async as answers">
     <ng-container *ngIf="all(answers)">
         <h3>Uitslag</h3>
-        <p>Je hebt alle vragen beantwoord. Hier komt dan iets van een knop voor indienen/uitslag bekijken.</p>
+        <p>
+            Je hebt alle vragen beantwoord. <br />
+            Bekijk <a routerLink="/uitslag">hier</a> de uitslag.
+        </p>
     </ng-container>
 
-    <h3>Beantwoorde vragen</h3>
-    <p>
-        <span class="flex gap-2 text-2xl flex-wrap">
-            <ng-container *ngFor="let answer of answers">
-                <a
-                    *ngIf="answer.answered"
-                    [routerLink]="answer.route"
-                    attr.style="background-color: {{ answer.color }}"
-                    class="shadow-lg rounded-md grow flex justify-center py-2 no-underline font-normal"
-                >
-                    {{ answer.label }}
-                </a>
-                <div *ngIf="!answer.answered" class="rounded-6 flex grow justify-center py-2">
-                    {{ answer.label }}
-                </div>
-            </ng-container>
-        </span>
-        <span *ngIf="any(answers)" class="pt-4 text-sm block">Klik op een vraag om hem aan te passen.</span>
-    </p>
+    <ng-container *ngIf="!all(answers)">
+        <h3>Beantwoorde vragen</h3>
+        <p>
+            <span class="flex gap-2 text-2xl flex-wrap">
+                <ng-container *ngFor="let answer of answers">
+                    <a
+                        *ngIf="answer.answered"
+                        [routerLink]="answer.route"
+                        attr.style="background-color: {{ answer.color }}"
+                        class="shadow-lg rounded-md grow flex justify-center py-2 no-underline font-normal"
+                    >
+                        {{ answer.label }}
+                    </a>
+                    <a
+                        *ngIf="!answer.answered && answer.found"
+                        [routerLink]="answer.route"
+                        attr.style="border-color: {{ answer.color }}"
+                        class="shadow-lg rounded-md grow flex justify-center py-2 no-underline font-normal border 2"
+                    >
+                        {{ answer.label }}
+                    </a>
+                    <div *ngIf="!answer.answered && !answer.found" class="rounded-6 flex grow justify-center py-2">
+                        {{ answer.label }}
+                    </div>
+                </ng-container>
+            </span>
+            <span *ngIf="any(answers)" class="pt-4 text-sm block">Klik op een vraag om hem aan te passen.</span>
+        </p>
+    </ng-container>
 </ng-container>

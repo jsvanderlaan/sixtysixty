@@ -4,10 +4,7 @@ import { routeColors, routes } from './constants';
 import { IntroComponent } from './intro/intro.component';
 import { Q1Component } from './q1/q1.component';
 import { Q2Component } from './q2/q2.component';
-import { Q3Component } from './q3/q3.component';
-import { Q4Component } from './q4/q4.component';
-import { Q5Component } from './q5/q5.component';
-import { Q6Component } from './q6/q6.component';
+import { UitslagComponent } from './uitslag/uitslag.component';
 
 const r: Routes = [
     {
@@ -31,32 +28,39 @@ const r: Routes = [
             backgroudColor: routeColors[2],
         },
     },
+    // {
+    //     path: routes[3],
+    //     component: Q3Component,
+    //     data: {
+    //         backgroudColor: routeColors[3],
+    //     },
+    // },
+    // {
+    //     path: routes[4],
+    //     component: Q4Component,
+    //     data: {
+    //         backgroudColor: routeColors[4],
+    //     },
+    // },
+    // {
+    //     path: routes[5],
+    //     component: Q5Component,
+    //     data: {
+    //         backgroudColor: routeColors[5],
+    //     },
+    // },
+    // {
+    //     path: routes[6],
+    //     component: Q6Component,
+    //     data: {
+    //         backgroudColor: routeColors[6],
+    //     },
+    // },
     {
-        path: routes[3],
-        component: Q3Component,
+        path: 'uitslag',
+        component: UitslagComponent,
         data: {
-            backgroudColor: routeColors[3],
-        },
-    },
-    {
-        path: routes[4],
-        component: Q4Component,
-        data: {
-            backgroudColor: routeColors[4],
-        },
-    },
-    {
-        path: routes[5],
-        component: Q5Component,
-        data: {
-            backgroudColor: routeColors[5],
-        },
-    },
-    {
-        path: routes[6],
-        component: Q6Component,
-        data: {
-            backgroudColor: routeColors[6],
+            backgroudColor: routeColors[0],
         },
     },
     { path: '**', redirectTo: routes[0] },

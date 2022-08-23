@@ -1,19 +1,14 @@
 <article class="prose lg:prose-xl">
-    <h1>Vraag 2</h1>
-    <p>
-        Op deze pagina staat een wat langer verhaal. Dan kan je tenminste goed zien hoe het is als er een heel verhaaltje staat.
-        Ik moet dan natuurlijk wel genoeg te typen hebben, dus zet ik maar wat random zinnen neer.
-    </p>
-    <p>Ook als de vraag uit meerdere stukken bestaat is dat natuurlijk interessant hoe het eruit ziet.</p>
-    <p>Kies 1 of meer opties. Wat zijn de juiste?</p>
-
+    <h1>Moestuin</h1>
+    <p>Hoe kwamen Jolanda en Edze <span class="italic">níet</span> aan hun moestuin?</p>
+    <img src="/assets/img/Warmoestuin IMG_20170627_192344088_HDR.jpg" />
     <form *ngIf="form" [formGroup]="form" class="flex flex-col gap-8">
         <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
             <div *ngFor="let option of options; let i = index">
                 <input id="q2-option-{{ i }}" [formControl]="answer.controls[i]" type="checkbox" class="hidden peer" />
                 <label
                     for="q2-option-{{ i }}"
-                    class="inline-flex items-center justify-center p-2 w-full bg-teal-200 peer-checked:bg-teal-400 rounded-lg border-2 cursor-pointer peer-checked:border-teal-200"
+                    class="inline-flex items-center justify-center p-2 w-full h-full bg-teal-200 peer-checked:bg-teal-400 rounded-lg border-2 cursor-pointer peer-checked:border-teal-200"
                     [ngClass]="{ 'ring-2 ring-red-500': showError && !answer.valid }"
                 >
                     {{ option.name }}
@@ -34,4 +29,5 @@
             </svg>
         </button>
     </form>
+    <p class="text-sm">Het is mogelijk om meerdere antwoorden te selecteren.</p>
 </article>

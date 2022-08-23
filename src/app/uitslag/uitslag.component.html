@@ -1,0 +1,35 @@
+<article *ngIf="answers$ | async as answers" class="prose lg:prose-xl">
+    <h1>Uitslag</h1>
+
+    <!-- Vraag 1 -->
+    <h3>Prieel</h3>
+    <p><ng-container *ngTemplateOutlet="summary; context: { $implicit: 0 }"></ng-container></p>
+    <p>
+        Tijdens de trouwfotoserie, op 20 november 1987 ’s ochtends in de duinen, moest vanwege de regen ook naar binnen worden
+        uitgeweken.
+    </p>
+    <img src="/assets/img/Scheveningen buiten vierkant IMG_20220822_144816087~3.jpg" />
+    <img src="/assets/img/Scheveningen binnen IMG_20220822_145035107~3.jpg" />
+    <p>Officieel werd later die dag getrouwd op het Stadhuis van Delft.</p>
+
+    <!-- Vraag 2 -->
+    <h3>Moestuin</h3>
+    <p><ng-container *ngTemplateOutlet="summary; context: { $implicit: 1 }"></ng-container></p>
+    <p>Met de quiz-sketch op hun trouwfeest wonnen ze net géén moestuin, maar een weekendje samen naar Parijs.</p>
+    <img src="/assets/img/Scheveningen buiten vierkant IMG_20220822_144816087~3.jpg" />
+    <img src="/assets/img/Scheveningen binnen IMG_20220822_145035107~3.jpg" />
+    <p>
+        Na enkele jaren tuinieren vanuit Delft, op een kavel van <span class="italic">De Schoffel</span> in Rijswijk, kwam
+        <span class="italic">Geworteld Wonend</span> voorbij, met wat later de Warmoestuin zou worden…
+    </p>
+
+    <ng-template #summary let-index>
+        Je antwoord is
+        <span *ngIf="arrayEquals(answers[index]?.answer ?? [], expected[index]); else fout0" class="color-green">goed.</span>
+        <ng-template #fout0>
+            <span class="color-red">fout.</span><br />
+            Jouw antwoord: {{ getAnswerString(index, answers[index].answer ?? []) }}. <br />
+            Het goede antwoord: {{ getAnswerString(index, expected[index]) }}.
+        </ng-template>
+    </ng-template>
+</article>

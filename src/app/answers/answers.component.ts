@@ -19,12 +19,13 @@ export class AnswersComponent implements OnInit {
         ).pipe(
             map(answers =>
                 answers.map((answer, i: number) => {
-                    const answered = answer !== null;
+                    const answered = answer?.answer !== null;
                     return {
-                        label: answered ? `${i + 1}` : '?',
+                        label: answer?.found ? `${i + 1}` : '?',
                         answered,
                         color: routeColors[i + 1],
                         route: `/${routes[i + 1]}`,
+                        found: answer?.found ?? false,
                     };
                 })
             )
@@ -45,4 +46,5 @@ interface Answer {
     answered: boolean;
     color: string;
     route: string;
+    found: boolean;
 }
