@@ -1,23 +1,35 @@
 <div class="flex flex-col gap-8">
     <article class="prose lg:prose-xl">
         <h1>Warmoes-quest</h1>
+
+        <p>Al willen wij onze geheimen graag delen... Je moet er wel even moeite voor doen...</p>
+
         <p class="flex">
             <app-icon
                 *ngFor="let question of questions"
                 [color]="routeColors[question]"
-                [innerColor]="question === 3 ? 'black' : 'white'"
+                [innerColor]="question === 4 ? 'black' : 'white'"
                 class="grow"
             ></app-icon>
         </p>
-        <p>Al willen wij onze geheimen graag delen... Je moet er wel even moeite voor doen...</p>
+        <app-answers></app-answers>
         <p>
-            Hoe werkt het? <br />
-            Vul je (team-) naam in <span class="font-bold">(todo)</span> en struin door alle tuinen van de Warmoestuin. Wanneer je
-            goed rondkijkt, zie je niet alleen veel moois, maar ook zes kleine gekleurde vlaggetjes.
+            <span class="font-bold">Hoe werkt het?</span> <br />
+            Struin (met een groepje) door alle tuinen van de Warmoestuin. Wanneer je goed rondkijkt, zie je niet alleen veel
+            moois, maar ook zes kleine, gekleurde vlaggetjes:
         </p>
+
+        <ul class="list-disc marker:text-black">
+            <li>Eentje bij de pomp in de Waterspeeltuin (aqua),</li>
+            <li>Eentje in de kruidencirkel in de Moestuin (oker),</li>
+            <li>Eentje bij de druivenkas naast de Spiraaltuin (lavendel),</li>
+            <li>Eentje bij de compostbak in de Voedseltuin (citroen),</li>
+            <li>Eentje bij het amfitheater op het Middenterrein (fucsia),</li>
+            <li>Eentje en bij de steiger in de Boomgaard (wortel)…</li>
+        </ul>
         <p>
             Scan van elk vlaggetje de QR code en de vraag komt in beeld. (URL staat er onder) <br />
-            Vul het juiste antwoord in en sla op! <br />
+            Vul jouw antwoord in en sla op! <br />
             <span class="italic">Tip: vraag eens raad aan een andere feestganger of buurtgenoot </span>
         </p>
         <p>
@@ -25,11 +37,5 @@
             Dan worden onze tuingeheimen prijsgegeven!
         </p>
         <p>Veel plezier!</p>
-        <!-- <p class="flex flex-wrap gap-3">
-            <a *ngFor="let question of questions" [routerLink]="'/' + routes[question]">Vraag {{ question }}</a>
-        </p>
-        <p>Normaal staan deze linkjes er dus niet maar kan je er alleen via QR komen.</p> -->
-
-        <app-answers></app-answers>
     </article>
 </div>

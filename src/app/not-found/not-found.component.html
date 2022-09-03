@@ -1,0 +1,13 @@
+<article class="prose lg:prose-xl">
+    <h1>Warmoes-quest</h1>
+
+    <p class="flex">
+        <app-icon
+            *ngFor="let question of questions"
+            [color]="routeColors[question]"
+            [innerColor]="question === 4 ? 'black' : 'white'"
+            class="grow"
+        ></app-icon>
+    </p>
+    <p>Begin deze quest door de QR code bij de start te scannen.</p>
+</article>

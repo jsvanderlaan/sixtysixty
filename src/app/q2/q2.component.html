@@ -1,33 +1,10 @@
-<article class="prose lg:prose-xl">
-    <h1>Moestuin</h1>
-    <p>Hoe kwamen Jolanda en Edze <span class="italic">níet</span> aan hun moestuin?</p>
-    <img src="/assets/img/Warmoestuin IMG_20170627_192344088_HDR.jpg" />
-    <form *ngIf="form" [formGroup]="form" class="flex flex-col gap-8">
-        <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <div *ngFor="let option of options; let i = index">
-                <input id="q2-option-{{ i }}" [formControl]="answer.controls[i]" type="checkbox" class="hidden peer" />
-                <label
-                    for="q2-option-{{ i }}"
-                    class="inline-flex items-center justify-center p-2 w-full h-full bg-teal-200 peer-checked:bg-teal-400 rounded-lg border-2 cursor-pointer peer-checked:border-teal-200"
-                    [ngClass]="{ 'ring-2 ring-red-500': showError && !answer.valid }"
-                >
-                    {{ option.name }}
-                </label>
-            </div>
-        </div>
-        <button (click)="submit()" class="bg-green-300 rounded-full flex justify-center p-2 shadow-md w-10 h-10">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                class="w-6 h-6 stroke-black"
-                fill="none"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="arcs"
-            >
-                <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-        </button>
-    </form>
-    <p class="text-sm">Het is mogelijk om meerdere antwoorden te selecteren.</p>
-</article>
+<question
+    [identifier]="2"
+    title="Kruiden"
+    question="Waar brachten we onze huwelijksreis door?"
+    [qImgs]="[{ url: 'War-moestuin vierkant IMG_20170627_192344088_HDR.jpg' }]"
+    [options]="['Luxemburg', 'Noord-Brabant', 'Parijs', 'op een moestuin']"
+    [answers]="[false, true, true, false]"
+    toelichting="Luxemburg was gewoon een leuke fietsvakantie en een moestuin hadden we (nog) niet. We huurden na ons trouwen een weekendhuisje bij Oirschot. En tijdens ons trouwfeest, bij de Bamb-Honeymoon-kwis, kozen we net niet voor een moestuin als kado, maar werd het een (extra) huwelijksreisje naar Parijs…"
+    [aImgs]="[{ url: 'Parijs1 IMG_20220822_162657569~2.jpg' }, { url: 'Parijs2 IMG_20220822_162647551~2.jpg' }]"
+></question>

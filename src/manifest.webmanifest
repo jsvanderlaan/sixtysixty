@@ -5,7 +5,7 @@
   "background_color": "#92d14f",
   "display": "standalone",
   "scope": "./",
-  "start_url": "./",
+  "start_url": "./92d14f",
   "icons": [
     {
       "src": "assets/icons/manifest-icon-192.maskable.png",

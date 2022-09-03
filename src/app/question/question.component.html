@@ -1,0 +1,58 @@
+<article class="prose lg:prose-xl">
+    <h1>{{ title }}</h1>
+    <p>{{ question }}</p>
+    <ng-container *ngFor="let img of qImgs">
+        <figure>
+            <img [src]="'/assets/img/' + img.url" />
+            <figcaption *ngIf="img.text">{{ img.text }}</figcaption>
+        </figure>
+    </ng-container>
+    <form *ngIf="form && !answered" [formGroup]="form" class="flex flex-col gap-8">
+        <div class="text-sm">Selecteer één of meerdere antwoorden.</div>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div *ngFor="let option of options; let i = index">
+                <input id="q2-option-{{ i }}" [formControl]="answer.controls[i]" type="checkbox" class="hidden peer" />
+                <label
+                    for="q2-option-{{ i }}"
+                    class="inline-flex items-center justify-center p-2 w-full h-full bg-teal-200 peer-checked:bg-teal-400 rounded-lg border-2 cursor-pointer peer-checked:border-teal-200"
+                    [ngClass]="{ 'ring-2 ring-red-500': showError && !answer.valid }"
+                >
+                    {{ option }}
+                </label>
+            </div>
+        </div>
+
+        <button (click)="submit()" class="bg-green-300 rounded-full flex justify-center p-2 shadow-md w-10 h-10">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="w-6 h-6 stroke-black"
+                fill="none"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="arcs"
+            >
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </button>
+    </form>
+    <ng-container *ngIf="answered">
+        <p>
+            <span *ngIf="arrayEquals(answer.value, answers); else fout0" class="text-green-700">Dat klopt! <br /></span>
+            <ng-template #fout0>
+                <span class="text-red-700">Helaas.</span><br />
+                {{ getAnswerString(answer.value) }} is niet juist. <br />
+            </ng-template>
+            Het antwoord is {{ getAnswerString(answers) }}.
+        </p>
+        <p [innerHtml]="toelichting"></p>
+
+        <ng-container *ngFor="let img of aImgs">
+            <figure>
+                <img [src]="'/assets/img/' + img.url" />
+                <figcaption *ngIf="img.text">{{ img.text }}</figcaption>
+            </figure>
+        </ng-container>
+        <button (click)="back()" class="bg-green-300 rounded-full flex justify-center px-3 py-2 shadow-md">Ga terug</button>
+    </ng-container>
+</article>

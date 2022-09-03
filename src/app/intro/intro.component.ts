@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { numberOfQuestions, routeColors, routes } from '../constants';
+import { db } from '../db';
 
 @Component({
     selector: 'app-intro',
@@ -11,5 +12,7 @@ export class IntroComponent implements OnInit {
     questions: number[] = Array.from({ length: numberOfQuestions }, (_, i) => i + 1);
     constructor() {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        db.start.put({ started: true, id: 0 });
+    }
 }

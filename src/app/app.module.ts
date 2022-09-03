@@ -7,7 +7,9 @@ import { environment } from 'src/environments/environment';
 import { AnswersComponent } from './answers/answers.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IconComponent } from './icon/icon.component';
 import { IntroComponent } from './intro/intro.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { Q1Component } from './q1/q1.component';
 import { Q2Component } from './q2/q2.component';
 import { Q3Component } from './q3/q3.component';
@@ -15,8 +17,7 @@ import { Q4Component } from './q4/q4.component';
 import { Q5Component } from './q5/q5.component';
 import { Q6Component } from './q6/q6.component';
 import { QuestionComponent } from './question/question.component';
-import { IconComponent } from './icon/icon.component';
-import { UitslagComponent } from './uitslag/uitslag.component';
+import { ResetComponent } from './reset/reset.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { UitslagComponent } from './uitslag/uitslag.component';
         QuestionComponent,
         AnswersComponent,
         IconComponent,
-        UitslagComponent,
+        NotFoundComponent,
+        ResetComponent,
     ],
     imports: [
         BrowserModule,

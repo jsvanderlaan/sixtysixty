@@ -5,6 +5,4 @@ import { QuestionComponent } from '../question/question.component';
     selector: 'app-q5',
     templateUrl: './q5.component.html',
 })
-export class Q5Component extends QuestionComponent {
-    override id = 5;
-}
+export class Q5Component {}

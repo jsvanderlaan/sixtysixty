@@ -1,33 +1,13 @@
-<article class="prose lg:prose-xl">
-    <h1>Prieel</h1>
-    <p>Waar werd deze trouwfoto gemaakt?</p>
-    <img src="/assets/img/Scheveningen regenboog 2 IMG_20220822_151942440~3.jpg" />
-    <form *ngIf="form" [formGroup]="form" class="flex flex-col gap-8">
-        <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <div *ngFor="let option of options; let i = index">
-                <input id="q2-option-{{ i }}" [formControl]="answer.controls[i]" type="checkbox" class="hidden peer" />
-                <label
-                    for="q2-option-{{ i }}"
-                    class="inline-flex items-center justify-center p-2 w-full h-full bg-teal-200 peer-checked:bg-teal-400 rounded-lg border-2 cursor-pointer peer-checked:border-teal-200"
-                    [ngClass]="{ 'ring-2 ring-red-500': showError && !answer.valid }"
-                >
-                    {{ option.name }}
-                </label>
-            </div>
-        </div>
-        <button (click)="submit()" class="bg-green-300 rounded-full flex justify-center p-2 shadow-md w-10 h-10">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                class="w-6 h-6 stroke-black"
-                fill="none"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="arcs"
-            >
-                <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-        </button>
-    </form>
-    <!-- <p class="text-sm">Het is mogelijk om meerdere antwoorden te selecteren.</p> -->
-</article>
+<question
+    [identifier]="1"
+    title="Pomp"
+    question="Waar werd deze trouwfoto gemaakt?"
+    [qImgs]="[{ url: 'Scheveningen regenboog 2 IMG_20220822_151942440~3.jpg' }]"
+    [options]="['Scheveningen', 'Delftse Hout', 'Ockenburg', 'Kijkduin']"
+    [answers]="[true, false, false, false]"
+    toelichting="Tijdens onze trouwfotoserie, op 20 november 1987, ’s ochtends in de duinen, moesten we vanwege de regen ook naar binnen (Kurhaus) uitwijken. Later die dag trouwden we in het Stadhuis van Delft."
+    [aImgs]="[
+        { url: 'Scheveningen buiten vierkant IMG_20220822_144816087~3.jpg' },
+        { url: 'Scheveningen binnen IMG_20220822_145035107~3.jpg' }
+    ]"
+></question>

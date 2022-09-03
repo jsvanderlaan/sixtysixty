@@ -1,28 +1,13 @@
-<!-- <div class="flex flex-col gap-4" *ngIf="form && controls">
-    <article class="prose lg:prose-xl">
-        <h1>Vraag 5</h1>
-        <p>Dit is een kort vraag met een standaard tekst veld. Wat moet je hier invullen?</p>
-    </article>
-    <form [formGroup]="form" class="flex flex-row gap-2">
-        <input
-            type="text"
-            class="px-4 rounded-full py-2 placeholder:italic placeholder:text-slate-400"
-            placeholder="Wie zal het zeggen..."
-            [formControl]="answer"
-            [ngClass]="{ 'ring-2 ring-red-500': showError && !controls.answer.valid }"
-        />
-        <button (click)="submit()" class="bg-green-300 rounded-full flex justify-center p-2 shadow-md w-10 h-10">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                class="w-6 h-6 stroke-black"
-                fill="none"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="arcs"
-            >
-                <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-        </button>
-    </form>
-</div> -->
+<question
+    [identifier]="5"
+    title="Amfi"
+    question="Met welke podiumkunst hebben Jolanda en Edze nooit op een buiten-podium gestaan?"
+    [qImgs]="[{ url: 'Amfi van bovenaf Screenshot_20220823-094150-908.png' }]"
+    [options]="['koorzang', 'ballet', 'acrobatiek', 'band-optreden']"
+    [answers]="[true, true, false, false]"
+    toelichting="Met de BamBBand stond Edze onlangs nog op dit mooie amfi-podium; ooit was Jolanda met acrobatiek te zien tijdens de Delftse Mooi Weer Spelen; Jolanda’s koor Delftst Blond trad tot nu toe alleen binnen op; en met ballet hebben Edze en Jolanda het beide nooit tot een buiten-optreden gebracht."
+    [aImgs]="[
+        { url: 'Acrobatiek vierkant IMG_20220822_145555129_HDR~3.jpg' },
+        { url: 'BamBBand amfi 2 Screenshot_20220822-095952-684~2.png' }
+    ]"
+></question>
