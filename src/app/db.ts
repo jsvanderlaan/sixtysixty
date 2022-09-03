@@ -6,7 +6,7 @@ export class AnswersDB extends Dexie {
 
     constructor() {
         super('answers');
-        this.version(2).stores({
+        this.version(3).stores({
             answers: '++id',
             start: '++id',
         });

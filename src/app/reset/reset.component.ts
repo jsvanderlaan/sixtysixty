@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { routes } from '../constants';
 import { db, generateDb } from '../db';
 
 @Component({
@@ -13,7 +12,7 @@ export class ResetComponent implements OnInit {
     ngOnInit(): void {
         db.delete().then(() => {
             generateDb();
-            return this._router.navigateByUrl(routes[0]);
+            return this._router.navigateByUrl('/');
         });
     }
 }
