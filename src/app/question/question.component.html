@@ -8,13 +8,13 @@
         </figure>
     </ng-container>
     <form *ngIf="form && !answered" [formGroup]="form" class="flex flex-col gap-8">
-        <div class="text-sm">Selecteer één of meerdere antwoorden.</div>
+        <div class="text-sm">Selecteer één of meerdere antwoorden en bevestig...</div>
         <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
             <div *ngFor="let option of options; let i = index">
                 <input id="q2-option-{{ i }}" [formControl]="answer.controls[i]" type="checkbox" class="hidden peer" />
                 <label
                     for="q2-option-{{ i }}"
-                    class="inline-flex items-center justify-center p-2 w-full h-full bg-teal-200 peer-checked:bg-teal-400 rounded-lg border-2 cursor-pointer peer-checked:border-teal-200"
+                    class="inline-flex items-center justify-center p-2 w-full h-full bg-teal-300 peer-checked:bg-teal-400 rounded-lg border-2 cursor-pointer peer-checked:border-teal-400 border-white"
                     [ngClass]="{ 'ring-2 ring-red-500': showError && !answer.valid }"
                 >
                     {{ option }}
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <button (click)="submit()" class="bg-green-300 rounded-full flex justify-center p-2 shadow-md w-10 h-10">
+        <button (click)="submit()" class="bg-[#92d14f] rounded-full flex justify-center px-3 py-2 items-center shadow-md shrink">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -34,6 +34,7 @@
             >
                 <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
+            Bevestigen
         </button>
     </form>
     <ng-container *ngIf="answered">
@@ -50,9 +51,9 @@
         <ng-container *ngFor="let img of aImgs">
             <figure>
                 <img [src]="'/assets/img/' + img.url" />
-                <figcaption *ngIf="img.text">{{ img.text }}</figcaption>
+                <figcaption class="-mt-0.5" *ngIf="img.text">{{ img.text }}</figcaption>
             </figure>
         </ng-container>
-        <button (click)="back()" class="bg-green-300 rounded-full flex justify-center px-3 py-2 shadow-md">Ga terug</button>
+        <button (click)="back()" class="bg-[#92d14f] rounded-full flex justify-center px-3 py-2 shadow-md">Ga terug</button>
     </ng-container>
 </article>

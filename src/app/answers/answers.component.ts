@@ -33,7 +33,7 @@ export class AnswersComponent implements OnInit {
     }
 
     any(answers: Answer[]): boolean {
-        return answers.some(a => a.answered);
+        return answers.some(a => a.found);
     }
 
     all(answer: Answer[]): boolean {

@@ -1,8 +1,17 @@
-<div class="flex flex-col gap-8">
+<canvas
+    id="confetti"
+    style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 1000; pointer-events: none"
+    width="1440"
+    height="2960"
+></canvas>
+<div class="flex flex-col gap-8" *ngIf="answers$ | async as answers">
     <article class="prose lg:prose-xl">
         <h1>Warmoes-quest</h1>
 
-        <p>Al willen wij onze geheimen graag delen... Je moet er wel even moeite voor doen...</p>
+        <p>
+            Al willen wij onze geheimen graag delen... Je moe<ng-container *ngIf="all(answers)">s</ng-container>t er wel even
+            moeite voor doen...
+        </p>
 
         <p class="flex">
             <app-icon
@@ -12,30 +21,68 @@
                 class="grow"
             ></app-icon>
         </p>
-        <app-answers></app-answers>
-        <p>
-            <span class="font-bold">Hoe werkt het?</span> <br />
-            Struin (met een groepje) door alle tuinen van de Warmoestuin. Wanneer je goed rondkijkt, zie je niet alleen veel
-            moois, maar ook zes kleine, gekleurde vlaggetjes:
-        </p>
+        <div *ngIf="all(answers)" class="shadow-lg px-3 py-1 bg-opacity-10 bg-white rounded">
+            <h3>Gefeliciteerd!</h3>
+            <p>
+                Je hebt alle vragen beantwoord! <br />
+                Zoek en vind je beloning in de Voedseltuin achter de boerderij-woningen. Langs het houtsnipper-pad staat bij de
+                hoge palen een zinken emmer, met daarin voor iedereen iets leuks.
+            </p>
 
-        <ul class="list-disc marker:text-black">
-            <li>Eentje bij de pomp in de Waterspeeltuin (aqua),</li>
-            <li>Eentje in de kruidencirkel in de Moestuin (oker),</li>
-            <li>Eentje bij de druivenkas naast de Spiraaltuin (lavendel),</li>
-            <li>Eentje bij de compostbak in de Voedseltuin (citroen),</li>
-            <li>Eentje bij het amfitheater op het Middenterrein (fucsia),</li>
-            <li>Eentje en bij de steiger in de Boomgaard (wortel)…</li>
-        </ul>
+            <img [src]="'/assets/img/IMG_20220901_163916670_HDR~2.jpg'" />
+            <img [src]="'/assets/img/IMG_20220901_163908495_HDR~2.jpg'" />
+        </div>
         <p>
-            Scan van elk vlaggetje de QR code en de vraag komt in beeld. (URL staat er onder) <br />
-            Vul jouw antwoord in en sla op! <br />
-            <span class="italic">Tip: vraag eens raad aan een andere feestganger of buurtgenoot </span>
+            <span class="flex gap-2 text-2xl flex-wrap">
+                <ng-container *ngFor="let answer of answers">
+                    <a
+                        *ngIf="answer.answered"
+                        [routerLink]="answer.route"
+                        attr.style="background-color: {{ answer.color }}"
+                        class="shadow-lg rounded-md grow flex justify-center py-2 no-underline font-normal"
+                    >
+                        {{ answer.label }}
+                    </a>
+                    <a
+                        *ngIf="!answer.answered && answer.found"
+                        [routerLink]="answer.route"
+                        attr.style="border-color: {{ answer.color }}"
+                        class="shadow-lg rounded-md grow flex justify-center py-2 no-underline font-normal border 2"
+                    >
+                        {{ answer.label }}
+                    </a>
+                    <div *ngIf="!answer.answered && !answer.found" class="rounded-6 flex grow justify-center py-2">
+                        {{ answer.label }}
+                    </div>
+                </ng-container>
+            </span>
+            <span *ngIf="any(answers)" class="pt-4 text-sm block">Klik op een vraag-knop om hem opnieuw te bekijken.</span>
         </p>
-        <p>
-            Heb je alle vragen gespeeld?... <br />
-            Dan worden onze tuingeheimen prijsgegeven!
-        </p>
-        <p>Veel plezier!</p>
+        <ng-container *ngIf="!all(answers)">
+            <p>
+                <span class="font-bold">Hoe werkt het?</span> <br />
+                Struin (met een groepje) door alle tuinen van de Warmoestuin. Wanneer je goed rondkijkt, zie je niet alleen veel
+                moois, maar ook zes kleine, gekleurde vlaggetjes:
+            </p>
+
+            <ul class="list-disc marker:text-black">
+                <li>Eentje bij de pomp in de Waterspeeltuin (aqua),</li>
+                <li>Eentje in de kruidencirkel in de Moestuin (oker),</li>
+                <li>Eentje bij de druivenkas naast de Spiraaltuin (lavendel),</li>
+                <li>Eentje bij de compostbak in de Voedseltuin (citroen),</li>
+                <li>Eentje bij het amfitheater op het Middenterrein (fuchsia),</li>
+                <li>Eentje en bij de steiger in de Boomgaard (wortel)…</li>
+            </ul>
+            <p>
+                Scan van elk vlaggetje de QR code en de vraag komt in beeld. (URL staat er onder) <br />
+                De volgorde maakt niet uit. Vul jouw antwoord in en bevestig!<br />
+                <span class="italic">Tip: vraag eens raad aan een andere feestganger of buurtgenoot </span>
+            </p>
+            <p>
+                Heb je alle vragen gespeeld?... <br />
+                Dan ontdek je wat we hebben prijsgegeven!
+            </p>
+            <p>Veel plezier!</p>
+        </ng-container>
     </article>
 </div>
